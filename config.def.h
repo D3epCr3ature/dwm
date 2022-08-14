@@ -46,7 +46,6 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-/* key definitions */
 /* Alt */
 //#define MODKEY Mod1Mask
 /* Super */
