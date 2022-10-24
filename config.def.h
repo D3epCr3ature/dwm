@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+/* https://cgit.freedesktop.org/xorg/proto/x11proto/tree/XF86keysym.h */
 #include <X11/XF86keysym.h>
 
 /* appearance */
@@ -51,6 +52,9 @@ static const Layout layouts[] = {
 //#define MODKEY Mod1Mask
 /* Super */
 #define MODKEY Mod4Mask
+/* Output device */
+#define SOUND_DEVICE "XXX"
+
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -65,9 +69,9 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 /* sound */
-static const char *toggleMute[]  = { "pactl", "set-sink-mute", SOUND_OUTPUT, "toggle", NULL };
-static const char *increaseVolume[]  = { "pactl", "set-sink-volume", SOUND_OUTPUT, "+5%", NULL };
-static const char *decreaseVolume[]  = { "pactl", "set-sink-volume", SOUND_OUTPUT, "-5%", NULL };
+static const char *toggleMute[]  = { "pactl", "set-sink-mute", SOUND_DEVICE, "toggle", NULL };
+static const char *increaseVolume[]  = { "pactl", "set-sink-volume", SOUND_DEVICE, "+5%", NULL };
+static const char *decreaseVolume[]  = { "pactl", "set-sink-volume", SOUND_DEVICE, "-5%", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
