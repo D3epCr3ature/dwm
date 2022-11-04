@@ -1,7 +1,7 @@
 echo "-------------------------------------------------"
 if [ -f config.h ]; then
 	echo "Remove old generated config.h"
-	rm -y config.h
+	rm config.h
 fi
 echo
 echo "-------------------------------------------------"
