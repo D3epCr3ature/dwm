@@ -21,8 +21,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-//static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tags[] = { ">_", "www", "", ""};
+static const char *tags[] = { ">_", "2", "www", "4", "5", "", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -31,8 +30,9 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	//{ "Gimp",         NULL,       NULL,            0,       1,           -1 },
-	{ "qutebrowser",  NULL,       NULL,       1 << 1,       0,           -1 },
-	{ "steam",        NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "qutebrowser",  NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "Opera",        NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "steam",        NULL,       NULL,       1 << 5,       0,           -1 },
 };
 
 /* layout(s) */
@@ -54,7 +54,7 @@ static const Layout layouts[] = {
 /* Super */
 #define MODKEY Mod4Mask
 /* Output device */
-#define SOUND_DEVICE "XXX"
+#define SOUND_DEVICE "@DEFAULT_SINK@"
 
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
