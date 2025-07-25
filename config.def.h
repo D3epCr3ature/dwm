@@ -72,6 +72,9 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *volumeToggle[] = { "pactl", "set-sink-mute", SOUND_DEVICE, "toggle", NULL };
 static const char *volumeIncr[] = { "pactl", "set-sink-volume", SOUND_DEVICE, "+5%", NULL };
 static const char *volumeDecr[] = { "pactl", "set-sink-volume", SOUND_DEVICE, "-5%", NULL };
+/* '-> monitor's brightness */
+static const char *brightnessIncr[] = { "xbacklight", "-inc", "10", NULL };
+static const char *brightnessDecr[] = { "xbacklight", "-dec", "10", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -84,6 +87,9 @@ static const Key keys[] = {
         { 0,                            XF86XK_AudioMute, spawn,   {.v = volumeToggle } },
         { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volumeIncr } },
         { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = volumeDecr } },
+        /* '-> monitor's brightness */
+        { 0,                            XF86XK_MonBrightnessUp,   spawn, {.v = brightnessIncr } },
+        { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = brightnessDecr } },
         /* behavior-like */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
